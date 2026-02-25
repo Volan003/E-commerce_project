@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     name: str
     description: str
@@ -8,7 +9,7 @@ class Category:
     category_count = 0
     product_count = 0
 
-    def __init__(self, name, description, products = None):
+    def __init__(self, name, description, products=None):
         self.name = name
         self.description = description
         self.__products = products if products else []
@@ -27,7 +28,7 @@ class Category:
         return self.__products
 
     def add_product(self, product: Product):
-        self.__products.append (product)
+        self.__products.append(product)
         Category.product_count += 1
 
 
