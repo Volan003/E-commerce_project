@@ -1,4 +1,3 @@
-import pytest
 from src.category import Category
 from src.product import Product
 
@@ -38,11 +37,5 @@ def test_category_products_property():
     c = Category("помидор", "овощи", [p1])
 
     # Проверяем корректность вывода
-    expected = "Название продукта: огурец, Стоимость: 56.5 руб., Остаток: 5 шт.\n"
+    expected = "огурец, 56.5 руб. Остаток: 5 шт.\n"
     assert c.products == expected
-
-
-# def test_category_products_setter(first_category, products):
-#     assert len(first_category.products_in_list) == 2
-#     first_category.products = products
-#     assert len(first_category.products_in_list) == 3
