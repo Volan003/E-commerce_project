@@ -5,8 +5,8 @@ def test_products_init (products):
 
 def test_product_str(products):
     #print(products)
-    assert str(products) == "Название продукта: огурец, Цена: 56.5 Остаток: 5"
+    assert str(products) == "огурец, 56.5 руб. Остаток: 5 шт."
 
 
-# def test_product_add(product_quantity_price_1, product_quantity_price_2):
-#     assert product_quantity_price_1 + product_quantity_price_2 == 9
+def test_product_add(product_all_price_1, product_all_price_2):
+    assert product_all_price_1 + product_all_price_2 == 404.5

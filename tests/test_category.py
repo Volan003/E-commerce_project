@@ -20,14 +20,4 @@ def test_category_init_ (category):
 
 
 def test_category_str(first_category):
-    #print(first_category) #проверяем, какой результат возвращается
-    assert str(first_category) == "яблоко, количество продуктов: 2 шт."
-
-# def test_product_iterator(product_iterator):
-#     iter(product_iterator)
-#     assert product_iterator.index == 0
-#     assert next(product_iterator).name == "огурец"
-#     assert next(product_iterator).name == "яблоки"
-#
-#     with pytest.raises(StopIteration):
-#         next(task_iterator)
+    assert str(first_category) == "яблоко, количество продуктов: 7 шт."

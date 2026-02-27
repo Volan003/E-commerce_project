@@ -41,5 +41,12 @@ def product_all_price_2():
     return Product("яблоки", "фрукт", 30.5, 4)
 
 @pytest.fixture
-def product_iterator(first_category):
+def product_iterator():
+    p1 = Product("огурец", "овощ", 56.5, 5)
+    p2 = Product("яблоки", "фрукт", 40.0, 3)
+    return ProductIterator([p1, p2])
+
+
+@pytest.fixture
+def product_iterator_1(first_category):
     return ProductIterator(first_category)

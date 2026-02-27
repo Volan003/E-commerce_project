@@ -12,9 +12,9 @@ class ProductIterator:
 
     def __next__(self):
         if self.index < len(self.category.products_in_list):
-            product = self.category.products_in_list[self.index]  # Получаем конкретный продукт
+            item = self.category.products_in_list[self.index]
             self.index += 1
-            return product  # Возвращаем продукт, а не класс
+            return item
         else:
             raise StopIteration
 
