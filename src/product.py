@@ -26,7 +26,8 @@ class Product:
     @price.setter
     def price(self, new_price: float):
         if new_price <= 0:
-            raise ValueError("Цена не должна быть нулевая или отрицательная")
+            print("Цена не должна быть нулевая или отрицательная")
+            return
         self.__price = float(new_price)
 
 
@@ -38,7 +39,7 @@ if __name__ == "__main__":
     print(product.price)
     print(product.quantity)
 
-    product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
+    product_2 = Product.new_product({"name": "манго", "description": "фрукт", "price": 76.5, "quantity": 3})
 
     print(product_2.name)
     print(product_2.description)
