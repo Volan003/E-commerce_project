@@ -1,19 +1,20 @@
 import pytest
 from src.product import Product
-from tests.conftest import product_iterator_1
+from src.product_iterator import ProductIterator
 
 
-def test_product_iterator(product_iterator_1):
-    iter(product_iterator_1)
-    assert product_iterator_1.index == 0
+def test_product_iterator(first_category_1):
+    it = ProductIterator(first_category_1)
+    iter(it)
+    assert it.index == 0
 
-    # first = next(product_iterator_1)
-    # assert isinstance(first, Product)
-    # assert first.name == "огурец"
-    #
-    # second = next(product_iterator)
-    # assert isinstance(second, Product)
-    # assert second.name == "яблоки"
-    #
-    # with pytest.raises(StopIteration):
-    #     next(product_iterator)
+    first = next(it)
+    assert isinstance(first, Product)
+    assert first.name == "огурец"
+
+    second = next(it)
+    assert isinstance(second, Product)
+    assert second.name == "яблоки"
+
+    with pytest.raises(StopIteration):
+        next(it)

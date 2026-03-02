@@ -13,14 +13,14 @@ class Category:
 
 
     def __str__(self):
-        return f"{self.name}, количество продуктов: {Category.product_count} шт."
+        product_quantity = 0
+        for product in self.__products:
+            product_quantity += product.quantity
+        return f"{self.name}, количество продуктов: {product_quantity} шт."
 
     @property
     def products(self):
-        """Возвращает строковое представление всех продуктов."""
-        if not self.__products:
-            return "Нет продуктов"
-        return "\n".join(str(product) for product in self.__products)
+        return self.__products
 
     @property
     def products_in_list(self):
