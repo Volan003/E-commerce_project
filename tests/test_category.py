@@ -13,7 +13,8 @@ def test_category_init(first_category, second_category):
     assert second_category.product_count == 5
 
 
-def test_category_init_ (category):
+
+def test_category_init_(category):
     assert category.name == "помидор"
     assert category.description == "овощи"
 #    assert category.products == []

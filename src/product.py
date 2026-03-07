@@ -8,7 +8,7 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.price = price
+        self.__price = price
         self.quantity = quantity
 
 
@@ -35,7 +35,7 @@ class Product:
 
 
 if __name__ == "__main__":
-    product = Product("огурец", "овощ", 56.5, 5)
+    product = Product("огурец", "овощь", 56.5, 5)
 
     print(product.name)
     print(product.description)
