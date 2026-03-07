@@ -1,5 +1,6 @@
 from src.product import Product
 
+
 class Category:
     category_count = 0
     product_count = 0
@@ -10,7 +11,6 @@ class Category:
         self.__products = products if products else []
         Category.category_count += 1
         Category.product_count += len(self.__products)
-
 
     def __str__(self):
         product_quantity = 0
@@ -57,4 +57,3 @@ if __name__ == "__main__":
     print("Список продуктов:", category.products_in_list)  # Сам список
     print("Количество категорий:", Category.category_count)
     print("Общее количество продуктов:", Category.product_count)
-

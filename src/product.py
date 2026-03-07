@@ -4,35 +4,32 @@ class Product:
     price: float
     quantity: int
 
-
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
         self._price = price
         self.quantity = quantity
 
-
     def __str__(self):
         return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
 
-
     def __add__(self, other):
         if type(other) is Product:
-            return self.quantity*self._price + other.quantity*other._price
+            return self.quantity * self._price + other.quantity * other._price
         raise TypeError
 
     @classmethod
     def new_product(cls, name, description, price, quantity):
-        return cls (name, description, price, quantity)
+        return cls(name, description, price, quantity)
 
     @property
     def price(self):
         return self._price
 
     @price.setter
-    def price(self, new_price:float):
+    def price(self, new_price: float):
         if new_price <= 0:
-            print ("Цена не должна быть нулевая или отрицательная")
+            print("Цена не должна быть нулевая или отрицательная")
         self._price = float(new_price)
 
 
@@ -57,5 +54,4 @@ if __name__ == "__main__":
     # print(product_2.price)
     # print(product_2.quantity)
 
-    print (product + product_2)
-
+    print(product + product_2)

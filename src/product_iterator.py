@@ -1,6 +1,7 @@
 from src.product import Product
 from src.category import Category
 
+
 class ProductIterator:
     def __init__(self, category_obj):
         self.category = category_obj
@@ -17,6 +18,7 @@ class ProductIterator:
             return item
         else:
             raise StopIteration
+
 
 if __name__ == "__main__":
     product_1 = Product("огурец", "овощь", 56.5, 5)
