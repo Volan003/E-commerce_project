@@ -29,8 +29,11 @@ class Category:
 
     def add_product(self, product: Product):
         """Добавляет продукт в категорию."""
-        self.__products.append(product)
-        Category.product_count += 1
+        if isinstance(product, Product):
+            self.__products.append(product)
+            Category.product_count += 1
+        else:
+            raise TypeError
 
 
 if __name__ == "__main__":
@@ -54,3 +57,4 @@ if __name__ == "__main__":
     print("Список продуктов:", category.products_in_list)  # Сам список
     print("Количество категорий:", Category.category_count)
     print("Общее количество продуктов:", Category.product_count)
+

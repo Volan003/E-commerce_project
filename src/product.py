@@ -8,7 +8,7 @@ class Product:
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
-        self.__price = price
+        self._price = price
         self.quantity = quantity
 
 
@@ -17,7 +17,9 @@ class Product:
 
 
     def __add__(self, other):
-        return self.quantity*self.__price + other.quantity*other.__price
+        if type(other) is Product:
+            return self.quantity*self._price + other.quantity*other._price
+        raise TypeError
 
     @classmethod
     def new_product(cls, name, description, price, quantity):
@@ -25,34 +27,35 @@ class Product:
 
     @property
     def price(self):
-        return self.__price
+        return self._price
 
     @price.setter
     def price(self, new_price:float):
         if new_price <= 0:
-            raise ValueError("Цена не должна быть нулевая или отрицательная")
-        self.__price = float(new_price)
+            print ("Цена не должна быть нулевая или отрицательная")
+        self._price = float(new_price)
 
 
 if __name__ == "__main__":
-    product = Product("огурец", "овощь", 56.5, 5)
+    product = Product("огурец", "овощ", 56.5, 5)
 
-    print(product.name)
-    print(product.description)
-    print(product.price)
-    print(product.quantity)
+    # print(product.name)
+    # print(product.description)
+    # print(product.price)
+    # print(product.quantity)
 
     product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
 
-    print(product_2.name)
-    print(product_2.description)
-    print(product_2.price)
-    print(product_2.quantity)
+    # print(product_2.name)
+    # print(product_2.description)
+    # print(product_2.price)
+    # print(product_2.quantity)
+    #
+    # product_2.price = 50
+    # print(product_2.name)
+    # print(product_2.description)
+    # print(product_2.price)
+    # print(product_2.quantity)
 
-    product_2.price = 50
-    print(product_2.name)
-    print(product_2.description)
-    print(product_2.price)
-    print(product_2.quantity)
+    print (product + product_2)
 
-print(Product)
