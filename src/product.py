@@ -33,7 +33,7 @@ class Product:
     def price(self, new_price:float):
         if new_price <= 0:
             print ("Цена не должна быть нулевая или отрицательная")
-        self._price = float(new_price)
+        self.__price = float(new_price)
 
 
 if __name__ == "__main__":
