@@ -30,7 +30,7 @@ class Product:
     @price.setter
     def price(self, new_price:float):
         if new_price <= 0:
-            raise ValueError("Цена не должна быть нулевая или отрицательная")
+            print ("Цена не должна быть нулевая или отрицательная")
         self.__price = float(new_price)
 
 
