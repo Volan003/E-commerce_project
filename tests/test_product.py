@@ -6,14 +6,10 @@ def test_products_init(products):
     assert products.description == "овощ"
 
 
-def test_products_create():
-    product = Product("манго", "фрукт", 76.5, 3)
-    product.name = "манго"
-    product.description = "фрукт"
-    product.price = 76.5
-    product.quantity = 3
+def test_product_str(products):
+    #print(products)
+    assert str(products) == "огурец, 56.5 руб. Остаток: 5 шт."
 
 
-def test_products_update(capsys, products):
-    products.price = 80
-    assert products.price == 80
+def test_product_add(product_all_price_1, product_all_price_2):
+    assert product_all_price_1 + product_all_price_2 == 404.5

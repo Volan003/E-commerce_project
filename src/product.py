@@ -4,30 +4,33 @@ class Product:
     price: float
     quantity: int
 
+
     def __init__(self, name, description, price, quantity):
         self.name = name
         self.description = description
         self.__price = price
         self.quantity = quantity
 
+
+    def __str__(self):
+        return f"{self.name}, {self.price} руб. Остаток: {self.quantity} шт."
+
+
+    def __add__(self, other):
+        return self.quantity*self.__price + other.quantity*other.__price
+
     @classmethod
-    def new_product(cls, product_data: dict):
-        return cls(
-            name=product_data["name"],
-            description=product_data["description"],
-            price=product_data["price"],
-            quantity=product_data["quantity"]
-        )
+    def new_product(cls, name, description, price, quantity):
+        return cls (name, description, price, quantity)
 
     @property
     def price(self):
         return self.__price
 
     @price.setter
-    def price(self, new_price: float):
+    def price(self, new_price:float):
         if new_price <= 0:
-            print("Цена не должна быть нулевая или отрицательная")
-            return
+            raise ValueError("Цена не должна быть нулевая или отрицательная")
         self.__price = float(new_price)
 
 
@@ -39,7 +42,7 @@ if __name__ == "__main__":
     print(product.price)
     print(product.quantity)
 
-    product_2 = Product.new_product({"name": "манго", "description": "фрукт", "price": 76.5, "quantity": 3})
+    product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
 
     print(product_2.name)
     print(product_2.description)
@@ -51,3 +54,5 @@ if __name__ == "__main__":
     print(product_2.description)
     print(product_2.price)
     print(product_2.quantity)
+
+print(Product)
