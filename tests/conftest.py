@@ -3,8 +3,8 @@ import pytest
 from src.category import Category
 from src.product import Product
 from src.product_iterator import ProductIterator
-from src.product_Smartphone import Smartphone
 from src.product_LawnGrass import LawnGrass
+from src.product_Smartphone import Smartphone
 
 
 @pytest.fixture
