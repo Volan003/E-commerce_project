@@ -1,5 +1,3 @@
-from src.category import Category
-from src.product import Product
 
 
 def test_category_init(first_category, second_category):
@@ -39,3 +37,6 @@ def test_category_init_1(first_category, second_category):
 #     # Проверяем корректность вывода
 #     expected = "огурец, 56.5 руб. Остаток: 5 шт.\n"
 #     assert c.products == expected
+
+def test_category_add_product_error(first_category, products):
+    assert len(first_category.products_in_list) == 2
