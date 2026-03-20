@@ -1,4 +1,8 @@
-class Product:
+from src.base_product import BaseProduct
+from src.print_mixin import PrintMixin
+
+
+class Product(BaseProduct, PrintMixin):
     name: str
     description: str
     price: float
@@ -9,6 +13,7 @@ class Product:
         self.description = description
         self._price = price
         self.quantity = quantity
+        super().__init__()
 
     def __repr__(self) -> str:
         return (f"Product(name={self.name!r}, description={self.description!r}, "
@@ -40,22 +45,22 @@ class Product:
 if __name__ == "__main__":
     product = Product("огурец", "овощ", 56.5, 5)
 
-    # print(product.name)
-    # print(product.description)
-    # print(product.price)
-    # print(product.quantity)
+    print(product.name)
+    print(product.description)
+    print(product.price)
+    print(product.quantity)
 
     product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
 
-    # print(product_2.name)
-    # print(product_2.description)
-    # print(product_2.price)
-    # print(product_2.quantity)
-    #
-    # product_2.price = 50
-    # print(product_2.name)
-    # print(product_2.description)
-    # print(product_2.price)
-    # print(product_2.quantity)
+    print(product_2.name)
+    print(product_2.description)
+    print(product_2.price)
+    print(product_2.quantity)
+
+    product_2.price = 50
+    print(product_2.name)
+    print(product_2.description)
+    print(product_2.price)
+    print(product_2.quantity)
 
     print(product + product_2)
