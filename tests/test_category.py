@@ -1,3 +1,5 @@
+from src.category import Category
+from src.product import Product
 
 
 def test_category_init(first_category, second_category):
@@ -40,3 +42,24 @@ def test_category_init_1(first_category, second_category):
 
 def test_category_add_product_error(first_category, products):
     assert len(first_category.products_in_list) == 2
+
+
+def test_middle_price_count(first_category_1):
+    assert first_category_1.middle_price_count() == 48.25
+
+
+def test_add_product_successful(capsys):
+    Category.category_count = 0
+    Category.product_count = 0
+
+    category = Category("category", "desc", [])
+    p = Product("огурец", "овощ", 56.5, 5)
+
+    category.add_product(p)
+
+    assert len(category.products_in_list) == 1
+    assert category.products_in_list[0] is p
+
+    captured = capsys.readouterr()
+    assert "Продукт добавлен" in captured.out
+    assert "Обработка добавления продукта завершена" in captured.out
