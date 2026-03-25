@@ -76,3 +76,8 @@ def product_grass():
 @pytest.fixture
 def product_grass2():
     return LawnGrass("Газонная трава 2", "Выносливая трава", 450.0, 15, "США", "5 дней", "Темно-зеленый")
+
+@pytest.fixture
+def c_products():
+    p1 = Product("огурец", "овощ", 56.5, 5)
+    p2 = Product("яблоки", "фрукт", 40.0, 3)
