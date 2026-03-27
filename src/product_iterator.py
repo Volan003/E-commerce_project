@@ -20,19 +20,19 @@ class ProductIterator:
             raise StopIteration
 
 
-if __name__ == "__main__":
-    product_1 = Product("огурец", "овощь", 56.5, 5)
-    product_2 = Product("яблоки", "фрукт", 30.5, 4)
-    product_3 = Product("апельсины", "фрукт", 70.5, 8)
-    product_4 = Product("манго", "фрукт", 65.5, 12)
-
-    category = Category("Фрукты и овощи", "Различные продукты", [product_1, product_2, product_3, product_4])
-
-    iterator = ProductIterator(category)
-
-    for product in iterator:
-        print(product)
-    print()
-
-    for product in iterator:
-        print(product)
+# if __name__ == "__main__":
+#     product_1 = Product("огурец", "овощь", 56.5, 5)
+#     product_2 = Product("яблоки", "фрукт", 30.5, 4)
+#     product_3 = Product("апельсины", "фрукт", 70.5, 8)
+#     product_4 = Product("манго", "фрукт", 65.5, 12)
+#
+#     category = Category("Фрукты и овощи", "Различные продукты", [product_1, product_2, product_3, product_4])
+#
+#     iterator = ProductIterator(category)
+#
+#     for product in iterator:
+#         print(product)
+#     print()
+#
+#     for product in iterator:
+#         print(product)

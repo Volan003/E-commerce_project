@@ -12,7 +12,10 @@ class Product(BaseProduct, PrintMixin):
         self.name = name
         self.description = description
         self._price = price
-        self.quantity = quantity
+        if quantity >= 0:
+            self.quantity = quantity
+        else:
+            raise ValueError("Товар с нулевым количеством не может быть добавлен")
         super().__init__()
 
     def __repr__(self) -> str:
@@ -42,25 +45,27 @@ class Product(BaseProduct, PrintMixin):
         self._price = float(new_price)
 
 
-if __name__ == "__main__":
-    product = Product("огурец", "овощ", 56.5, 5)
+# if __name__ == "__main__":
+#     product = Product("огурец", "овощ", 56.5, 5)
+#
+#     print(product.name)
+#     print(product.description)
+#     print(product.price)
+#     print(product.quantity)
+#
+#     product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
+#
+#     print(product_2.name)
+#     print(product_2.description)
+#     print(product_2.price)
+#     print(product_2.quantity)
+#
+#     product_2.price = 50
+#     print(product_2.name)
+#     print(product_2.description)
+#     print(product_2.price)
+#     print(product_2.quantity)
+#
+#     print(product + product_2)
 
-    print(product.name)
-    print(product.description)
-    print(product.price)
-    print(product.quantity)
-
-    product_2 = Product.new_product("манго", "фрукт", 76.5, 3)
-
-    print(product_2.name)
-    print(product_2.description)
-    print(product_2.price)
-    print(product_2.quantity)
-
-    product_2.price = 50
-    print(product_2.name)
-    print(product_2.description)
-    print(product_2.price)
-    print(product_2.quantity)
-
-    print(product + product_2)
+    # product_1 = Product("огурец", "овощ", 56.5, -1)
